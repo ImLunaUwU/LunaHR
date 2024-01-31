@@ -28,14 +28,16 @@ if __name__ == "__main__":
         tens_hr = (heart_rate // 10) % 10
         hundreds_hr = heart_rate // 100
 
-        osc_address = "/vrchat/heart_rate"
-        osc_client.send_message(osc_address, [ones_hr, tens_hr, hundreds_hr, heart_rate])
+        osc_client.send_message("/avatar/parameters/ones_hr", ones_hr)
+        osc_client.send_message("/avatar/parameters/tens_hr", tens_hr)
+        osc_client.send_message("/avatar/parameters/hundreds_hr", hundreds_hr)
+        osc_client.send_message("/avatar/parameters/heart_rate", heart_rate)
 
         print(f"Sent Realistic Heart Rate: {hundreds_hr}{tens_hr}{ones_hr} | BPM: {heart_rate}")
 
     try:
         while True:
             simulate_realistic_heart_rate()
-            time.sleep(1) 
+            time.sleep(1)
     except KeyboardInterrupt:
         print("Script terminated by user.")

@@ -23,6 +23,8 @@ if __name__ == "__main__":
     vrchat_ip = "127.0.0.1"
     vrchat_port = 9000
 
+    osc_client = udp_client.SimpleUDPClient(vrchat_ip, vrchat_port)
+
     async def run():
         retry_interval = 10  # seconds
         while True:
@@ -66,9 +68,10 @@ if __name__ == "__main__":
         tens_hr = (heart_rate // 10) % 10
         hundreds_hr = (heart_rate // 100) % 10
 
-        osc_client = udp_client.SimpleUDPClient(vrchat_ip, vrchat_port)
-
-        osc_client.send_message("/vrchat/heart_rate", [ones_hr, tens_hr, hundreds_hr, heart_rate])
+        osc_client.send_message("/vrchat/heart_rate/ones_hr", ones_hr)
+        osc_client.send_message("/vrchat/heart_rate/tens_hr", tens_hr)
+        osc_client.send_message("/vrchat/heart_rate/hundreds_hr", hundreds_hr)
+        osc_client.send_message("/vrchat/heart_rate/heart_rate", heart_rate)
 
     try:
         asyncio.run(run())
