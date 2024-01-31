@@ -1,25 +1,38 @@
-import random
-import time
-from pythonosc import udp_client
+import subprocess
 
-vrchat_ip = "127.0.0.1"
-vrchat_port = 9000
+def install_dependencies():
+    required_packages = ["python-osc"]
 
-osc_client = udp_client.SimpleUDPClient(vrchat_ip, vrchat_port)
-
-def simulate_realistic_heart_rate():
-    heart_rate = random.randint(60, 100)
-
-    ones_hr = heart_rate % 10
-    tens_hr = (heart_rate // 10) % 10
-    hundreds_hr = heart_rate // 100
-
-    osc_address = "/vrchat/heart_rate"
-    osc_client.send_message(osc_address, [ones_hr, tens_hr, hundreds_hr, heart_rate])
-
-    print(f"Sent Realistic Heart Rate: {hundreds_hr}{tens_hr}{ones_hr} | BPM: {heart_rate}")
+    for package in required_packages:
+        try:
+            __import__(package)
+        except ImportError:
+            print(f"Installing {package}...")
+            subprocess.check_call(["pip", "install", package])
 
 if __name__ == "__main__":
+    install_dependencies()
+    import random
+    import time
+    from pythonosc import udp_client
+
+    vrchat_ip = "127.0.0.1"
+    vrchat_port = 9000
+
+    osc_client = udp_client.SimpleUDPClient(vrchat_ip, vrchat_port)
+
+    def simulate_realistic_heart_rate():
+        heart_rate = random.randint(60, 100)
+
+        ones_hr = heart_rate % 10
+        tens_hr = (heart_rate // 10) % 10
+        hundreds_hr = heart_rate // 100
+
+        osc_address = "/vrchat/heart_rate"
+        osc_client.send_message(osc_address, [ones_hr, tens_hr, hundreds_hr, heart_rate])
+
+        print(f"Sent Realistic Heart Rate: {hundreds_hr}{tens_hr}{ones_hr} | BPM: {heart_rate}")
+
     try:
         while True:
             simulate_realistic_heart_rate()
