@@ -13,4 +13,4 @@ OSC port (AND VRCHAT IP) can be changed in the scripts as well.
 This project does NOT use the same parameters as the one by 200Tigersbloxed. This is both because they're not meant to be the same, nor compatible, and also becuase everything in that project is outdated and the Unity files doesn't really work properly anymore.
 Feel free to use mine as a direct replacement.
 
-## THIS PROJECT IS A (Mostly finished) WIP
+## Please direct issues to me, I'd love to fix any.
