@@ -1,3 +1,4 @@
+# Use this script for debugging your avatar.
 import subprocess
 import random
 import time

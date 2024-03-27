@@ -1,3 +1,4 @@
+# Use this script to debug the scripts without VRChat
 import tkinter as tk
 import threading
 import signal

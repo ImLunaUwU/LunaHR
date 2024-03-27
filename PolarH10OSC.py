@@ -20,6 +20,7 @@ if __name__ == "__main__":
 
     POLAR_H10_NAME = "Polar H10 B71CC122"
 
+    # Replace the following values with your VRChat IP and port
     vrchat_ip = "127.0.0.1"
     vrchat_port = 9000
 
@@ -76,4 +77,4 @@ if __name__ == "__main__":
     try:
         asyncio.run(run())
     except KeyboardInterrupt:
-        pass  # Ignore the KeyboardInterrupt error on exit
+        pass

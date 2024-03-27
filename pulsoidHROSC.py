@@ -13,6 +13,15 @@ except ImportError:
     import websocket
     from pythonosc import udp_client
 
+# Define the Pulsoid access token
+token = "YOUR_ACCESS_TOKEN_HERE"
+
+# Replace the following values with your VRChat IP and port
+vrchat_ip = "127.0.0.1"
+vrchat_port = 9000
+
+osc_client = udp_client.SimpleUDPClient(vrchat_ip, vrchat_port)
+
 def send_heart_rate_osc(heart_rate):
     ones_hr = heart_rate % 10
     tens_hr = (heart_rate // 10) % 10
@@ -34,27 +43,30 @@ def on_message(ws, message):
     except KeyError:
         pass
 
+
 def on_error(ws, error):
-    pass
+    print("### there was an error, please check configuration ###")
+    print("### if this script was just closed using keyboard interrupt, this can safely be ignored ###")
 
 def on_close(ws):
-    pass
+    print("### websocket closed ###")
 
 def on_open(ws):
     print("### connected ###")
 
 if __name__ == "__main__":
-    websocket.enableTrace(False)
-    ws = websocket.WebSocketApp("wss://dev.pulsoid.net/api/v1/data/real_time?access_token=YOUR_ACCESS_TOKEN_HERE",
+    websocket.enableTrace(False) 
+
+    ws_url = f"wss://dev.pulsoid.net/api/v1/data/real_time?access_token={token}"
+
+    ws = websocket.WebSocketApp(ws_url,
                                 on_message=on_message,
                                 on_error=on_error,
                                 on_close=on_close)
     ws.on_open = on_open
 
-    # Replace the following values with your VRChat IP and port
-    vrchat_ip = "127.0.0.1"
-    vrchat_port = 9000
+    try:
+        ws.run_forever()
+    except KeyboardInterrupt:
+        pass
 
-    osc_client = udp_client.SimpleUDPClient(vrchat_ip, vrchat_port)
-
-    ws.run_forever()
