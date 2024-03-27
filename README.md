@@ -6,6 +6,15 @@ If you like my project, please star it as it shows you're interested! <3
 
 ## Setup:
 
+### Avatar
+The needed prefabs is in LunaHR.unitypackage. Avatar setup is as simple as any other VRCFury asset, and is MOSTLY drag and drop onto your avatar.
+
+Before importing LunaHR.unitypackage, please make sure you already have Poiyomi Toon (or Poi Pro) installed.
+
+*HR Prefab should be dragged onto the avatar root itself.*
+
+VRCFury should take care of all setup from this point. If not, please contact me because then I'd need to fix some things.
+
 ### Polar H10
 The main Polar H10 script is set up to work with specifically my device, and may not work with yours without tweaking "HEART_RATE_UUID" and "POLAR_H10_NAME" within the script.
 
