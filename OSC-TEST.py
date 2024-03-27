@@ -23,10 +23,10 @@ class OscReceiverApp:
 
         # Define a dispatcher for handling OSC messages
         self.dispatcher = dispatcher.Dispatcher()
-        self.dispatcher.map("/vrchat/heart_rate/ones_hr", self.update_ones_hr)
-        self.dispatcher.map("/vrchat/heart_rate/tens_hr", self.update_tens_hr)
-        self.dispatcher.map("/vrchat/heart_rate/hundreds_hr", self.update_hundreds_hr)
-        self.dispatcher.map("/vrchat/heart_rate/heart_rate", self.update_heart_rate)
+        self.dispatcher.map("/avatar/parameters/hr/ones_hr", self.update_ones_hr)
+        self.dispatcher.map("/avatar/parameters/hr/tens_hr", self.update_tens_hr)
+        self.dispatcher.map("/avatar/parameters/hr/hundreds_hr", self.update_hundreds_hr)
+        self.dispatcher.map("/avatar/parameters/hr/heart_rate", self.update_heart_rate)
 
         self.server = osc_server.ThreadingOSCUDPServer(('127.0.0.1', 9000), self.dispatcher)
         self.server_thread = threading.Thread(target=self.server.serve_forever)
