@@ -10,6 +10,8 @@ If you like my project, please star it as it shows you're interested! <3
 The needed prefabs is in LunaHR.unitypackage. Avatar setup is as simple as any other VRCFury asset, and is MOSTLY drag and drop onto your avatar.
 
 Before importing LunaHR.unitypackage, please make sure you already have Poiyomi Toon (or Poi Pro) installed.
+Alternatively, if you do not want to use Poi, you'd lack the BPM effect unless you set it up yourself.
+This is slightly time consuming, but overall worth it.
 
 *HR Prefab should be dragged onto the avatar root itself.*
 
