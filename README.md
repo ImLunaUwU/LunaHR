@@ -16,11 +16,11 @@ If you have another Polar monitor, please test my script with your device and le
 ### Avatar
 This project only uses 5 parameters (Using 33 just memory)!
 
-The needed prefabs is in LunaHR.unitypackage. Avatar setup is as simple as any other VRCFury asset, and should be drag and drop onto your avatar.
+The needed prefabs is in LunaHR.unitypackage (moved to releases). Avatar setup is as simple as any other VRCFury asset, and should be drag and drop onto your avatar.
 
 Before importing LunaHR.unitypackage, please make sure you already have Poiyomi Toon (or Poi Pro) installed.
 Alternatively, if you do not want to use Poi, you'd lack the BPM effect unless you set it up yourself.
-This is slightly time consuming, but overall worth it.
+This is slightly time consuming, but overall worth it if you're chronically online like me.
 
 *HR Prefab should be dragged onto the avatar root itself.*
 
