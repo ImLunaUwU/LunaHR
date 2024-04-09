@@ -9,6 +9,8 @@ At this moment, its unsure if an H9 or other Polar devices would work with the P
 H10 and devices used with Pulsoid are the only confirmed to work at the current moment.
 If you have another Polar monitor, please test my script with your device and let me know if it works! <3
 
+[Alternatively you can now get this from Gumroad!](https://lunauwu.gumroad.com/l/LunaHR)
+
 #### Please direct issues to me, I'd love to fix any.
 
 ## Setup:
@@ -30,7 +32,7 @@ VRCFury should take care of all setup from this point. If not, please contact me
 
 *The "Display" part of the prefab should be unchecked before uploading.* The default state is off, and it'll become visible when toggled through the menu.
 
-
+If your avatar has darker materials, you can use HRNumbersLight.mat instead of HRNumbers.mat.
 
 ### Polar H10
 The only thing you should need to change is "POLAR_H10_NAME" within the script.
