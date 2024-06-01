@@ -12,6 +12,9 @@ If you have another Polar monitor, please test my script with your device and le
 [Alternatively you can now get this from Gumroad!](https://lunauwu.gumroad.com/l/LunaHR)
 
 #### Please direct issues to me, I'd love to fix any.
+^ Message me on Discord @ imlunauwu.
+
+[Consider supporting me on Ko-Fi :3](https://ko-fi.com/imlunauwu)
 
 ## Setup:
 
