@@ -33,9 +33,9 @@ When adding to the avatar, the display defaults to be on your wrist/left lower a
 
 VRCFury should take care of all setup from this point. If not, please contact me because then I'd need to fix some things.
 
-*The "Display" part of the prefab should be unchecked before uploading.* The default state is off, and it'll become visible when toggled through the menu.
+*In the most recent update HR Prefab can be left on before uploading, as it now uses VRCFury toggles.*
 
-If your avatar has darker materials, you can use HRNumbersLight.mat instead of HRNumbers.mat.
+Feel free to customize materials to your liking.
 
 ### Polar H10
 The only thing you should need to change is "POLAR_H10_NAME" within the script.
