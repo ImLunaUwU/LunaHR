@@ -2,14 +2,10 @@
 
 If you like my project, please star it as it shows you're interested! <3
 
-*Important: DO NOT run the scripts as administrator, or the modules will be installed wrongly.*
-
 At this moment, its unsure if an H9 or other Polar devices would work with the PolarH10 script.
 
 H10 and devices used with Pulsoid are the only confirmed to work at the current moment.
 If you have another Polar monitor, please test my script with your device and let me know if it works! <3
-
-[Alternatively you can now get this from Gumroad!](https://lunauwu.gumroad.com/l/LunaHR)
 
 #### Please direct issues to me, I'd love to fix any.
 
@@ -30,18 +26,15 @@ When adding to the avatar, the display defaults to be on your wrist/left lower a
 
 VRCFury should take care of all setup from this point. If not, please contact me because then I'd need to fix some things.
 
-*The "Display" part of the prefab should be unchecked before uploading.* The default state is off, and it'll become visible when toggled through the menu.
+Everything shoule be straightforward.
 
-If your avatar has darker materials, you can use HRNumbersLight.mat instead of HRNumbers.mat.
+Get the executable versions from here:  
 
 ### Polar H10
-The only thing you should need to change is "POLAR_H10_NAME" within the script.
+Everything is now configurable in the new GUI app.
 
-This can be found by using your phone's bluetooth pairing screen, BLE devices SHOULD show up.
-If they dont
-
-### Pulsoid
-Replace "YOUR_ACCESS_TOKEN_HERE" in the pulsoidHROSC script with your token. A token requires Pulsoid's "BRO" plan and can be found at https://pulsoid.net/ui/keys
+### Pulsoid - PAID PLAN REQUIRED
+Config is now simple and in a GUI. A token requires Pulsoid's "BRO" plan and can be found at https://pulsoid.net/ui/keys
 
 ## Credits and info
 HEAVILY inspired by the (now inactive) project here: https://github.com/200Tigersbloxed/HRtoVRChat_OSC/
@@ -51,5 +44,3 @@ This is both because they're not meant to be the same, nor compatible, and also 
 *Feel free to use mine as a (semi-)direct replacement.*
 
 The heart and text uses Poiyomi Toon, which you can get from Poi's Discord. https://discord.gg/poiyomi
-
-OSC port (AND VRCHAT IP) can be changed in the scripts as well.
