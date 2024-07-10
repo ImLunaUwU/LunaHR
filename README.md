@@ -10,6 +10,7 @@ If you have another Polar monitor, please test my script with your device and le
 [Consider supporting me on Ko-Fi :3](https://ko-fi.com/imlunauwu)
 
 #### Please direct issues to me, I'd love to fix any.
+^ Message me on Discord @ imlunauwu.
 
 ## Installs:
 
@@ -37,6 +38,10 @@ This is slightly time consuming, but overall worth it if you're chronically onli
 When adding to the avatar, the display defaults to be on your wrist/left lower arm bone. This can be changed by unpacking the prefab and changing armature link settings.
 
 VRCFury should take care of all setup from this point. If not, please contact me because then I'd need to fix some things.
+
+*In the most recent update HR Prefab can be left on before uploading, as it now uses VRCFury toggles.*
+
+Feel free to customize materials to your liking.
 
 ### Polar H10
 Everything is now configurable in the new GUI app.
