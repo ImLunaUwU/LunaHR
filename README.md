@@ -7,7 +7,19 @@ At this moment, its unsure if an H9 or other Polar devices would work with the P
 H10 and devices used with Pulsoid are the only confirmed to work at the current moment.
 If you have another Polar monitor, please test my script with your device and let me know if it works! <3
 
+[Consider supporting me on Ko-Fi :3](https://ko-fi.com/imlunauwu)
+
 #### Please direct issues to me, I'd love to fix any.
+
+## Installs:
+
+Everything should now be straightforward.
+
+Get the Unity prefab here: https://github.com/ImLunaUwU/LunaHR/blob/main/LunaHR.unitypackage
+
+Get the executable versions of the HR software from here: https://github.com/ImLunaUwU/LunaHR/tree/main/dist
+
+The executable versions wont require you installing a bunch of things, as all dependencies are packaged within. For this reason, it also runs slightly better... Probably...
 
 ## Setup:
 
@@ -26,10 +38,6 @@ When adding to the avatar, the display defaults to be on your wrist/left lower a
 
 VRCFury should take care of all setup from this point. If not, please contact me because then I'd need to fix some things.
 
-Everything shoule be straightforward.
-
-Get the executable versions from here:  
-
 ### Polar H10
 Everything is now configurable in the new GUI app.
 
@@ -42,5 +50,7 @@ HEAVILY inspired by the (now inactive) project here: https://github.com/200Tiger
 This project does NOT use the same parameters as the one by 200Tigersbloxed. It does use less though.
 This is both because they're not meant to be the same, nor compatible, and also becuase everything in that project is outdated and the Unity files doesn't really work properly anymore.
 *Feel free to use mine as a (semi-)direct replacement.*
+
+#### Parameter configuration may come in the future, though is not currently a priority. 
 
 The heart and text uses Poiyomi Toon, which you can get from Poi's Discord. https://discord.gg/poiyomi
