@@ -1,5 +1,7 @@
 # LunaHR - Heart rate to VRChat through OSC 
 
+<img src="app_icon.png" width="200" height="200" />
+
 If you like my project, please star it as it shows you're interested! <3
 
 At this moment, its unsure if an H9 or other Polar devices would work with the PolarH10 script.
@@ -22,6 +24,7 @@ Get the executable versions of the HR software from here: https://github.com/ImL
 
 The executable versions wont require you installing a bunch of things, as all dependencies are packaged within. For this reason, it also runs slightly better... Probably...
 
+![Image of the executables](zginbfyf.bmp)
 ## Setup:
 
 ### Avatar
