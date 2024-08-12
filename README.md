@@ -18,7 +18,7 @@ If you have another Polar monitor, please test my script with your device and le
 
 Everything should now be straightforward.
 
-Get the Unity prefab here: https://github.com/ImLunaUwU/LunaHR/blob/main/LunaHR.unitypackage
+Get the Unity prefab here: [Quest compatible (33 bytes)](https://github.com/ImLunaUwU/LunaHR/blob/main/LunaHR.unitypackage), [PC only (9 bytes)](https://github.com/ImLunaUwU/LunaHR/blob/main/LunaHR%20(9%20bytes%2C%20not%20quest%20compatible).unitypackage)
 
 Get the executable versions of the HR software from here: https://github.com/ImLunaUwU/LunaHR/tree/main/dist
 
@@ -28,17 +28,15 @@ The executable versions wont require you installing a bunch of things, as all de
 ## Setup:
 
 ### Avatar
-This project only uses 5 parameters (Using 33 just memory)!
+The needed prefabs is in the unitypackages (see links above). Avatar setup is as simple as any other VRCFury asset, and should be drag and drop onto your avatar.
 
-The needed prefabs is in LunaHR.unitypackage (moved to releases). Avatar setup is as simple as any other VRCFury asset, and should be drag and drop onto your avatar.
-
-Before importing LunaHR.unitypackage, please make sure you already have Poiyomi Toon (or Poi Pro) installed.
+Before importing the unitypackage, please make sure you already have Poiyomi Toon (or Poi Pro) installed.
 Alternatively, if you do not want to use Poi, you'd lack the BPM effect unless you set it up yourself.
 This is slightly time consuming, but overall worth it if you're chronically online like me.
 
 *HR Prefab should be dragged onto the avatar root itself.*
 
-When adding to the avatar, the display defaults to be on your wrist/left lower arm bone. This can be changed by unpacking the prefab and changing armature link settings.
+When adding to the avatar, the display defaults to be on your left wrist/left lower arm bone. This can be changed by unpacking the prefab and changing armature link settings.
 
 VRCFury should take care of all setup from this point. If not, please contact me because then I'd need to fix some things.
 
@@ -58,6 +56,8 @@ HEAVILY inspired by the (now inactive) project here: https://github.com/200Tiger
 This project does NOT use the same parameters as the one by 200Tigersbloxed. It does use less though.
 This is both because they're not meant to be the same, nor compatible, and also becuase everything in that project is outdated and the Unity files doesn't really work properly anymore.
 *Feel free to use mine as a (semi-)direct replacement.*
+
+PC only prefab uses the [Simple Counter Shader](https://www.patreon.com/posts/simple-counter-62864361) from [RED_SIM](https://www.patreon.com/red_sim).
 
 #### Parameter configuration may come in the future, though is not currently a priority. 
 
