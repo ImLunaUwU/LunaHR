@@ -23,7 +23,7 @@ if __name__ == "__main__":
     osc_client = udp_client.SimpleUDPClient(vrchat_ip, vrchat_port)
 
     def simulate_realistic_heart_rate():
-        heart_rate = random.randint(180, 180)
+        heart_rate = random.randint(60, 180)
 
         ones_hr = heart_rate % 10
         tens_hr = (heart_rate // 10) % 10
