@@ -20,7 +20,12 @@ Everything should now be straightforward.
 
 Get the Unity prefab here: [Quest compatible (33 bytes)](https://github.com/ImLunaUwU/LunaHR/blob/main/LunaHR%20(33%20bytes%2C%20works%20with%20quest).unitypackage), [PC only (9 bytes)](https://github.com/ImLunaUwU/LunaHR/blob/main/LunaHR%20(9%20bytes%2C%20not%20quest%20compatible).unitypackage)
 
-Get the executable versions of the HR software from here: https://github.com/ImLunaUwU/LunaHR/tree/main/dist
+Get the executable versions of the HR software from here: [Polar (H10)](https://github.com/ImLunaUwU/LunaHR/blob/main/dist/PolarH10OSC.exe), [Pulsoid](https://github.com/ImLunaUwU/LunaHR/blob/main/dist/PulsoidHROSC.exe)
+
+I'm gonna be honest and say your anti-virus probably wont like them, due to the fact that they're unsigned and the backend is Python.
+If you do not trust the EXEs, feel free to use the raw Python scripts. They're essentially the same, but one (the exe) is neater and comes with the dependencies packaged.
+
+I have no clue how to get this unflagged, since it is what it is. A Python script. I'd remake this in electron and all, but idk how to use that :c
 
 The executable versions wont require you installing a bunch of things, as all dependencies are packaged within. For this reason, it also runs slightly better... Probably...
 
