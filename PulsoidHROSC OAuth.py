@@ -19,7 +19,7 @@ APPDATA_DIR = os.path.join(os.getenv('APPDATA'), 'imlunauwu')
 CONFIG_FILE = os.path.join(APPDATA_DIR, "config_Pulsoid.json")
 ICON_FILE = "icon_base64.txt"
 
-CLIENT_ID = "YOUR_CLIENT_ID"
+CLIENT_ID = "0531e0ef-b030-47d5-9066-205475f01d59"
 REDIRECT_URI = "http://localhost:4001/response"
 SCOPE = "data:heart_rate:read"
 AUTHORIZATION_URL = "https://pulsoid.net/oauth2/authorize"
