@@ -1,6 +1,7 @@
 import os
 import json
 import asyncio
+import sys
 import tkinter as tk
 from tkinter import scrolledtext
 from bleak import BleakScanner, BleakClient
@@ -13,10 +14,7 @@ from PIL import Image, ImageTk
 APPDATA_DIR = os.path.join(os.getenv('APPDATA'), 'imlunauwu')
 CONFIG_FILE = os.path.join(APPDATA_DIR, "config_PolarH10.json")
 HEART_RATE_UUID = "00002a37-0000-1000-8000-00805f9b34fb"
-
-icon_base64 = """
-iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAALfUExURdmls9mjsdmot9mrutiottisutipuNiisdeisdagsNamttequdeouNahsdWer9SesNqksdqqt9eToNNga9JRW9NeadaHlNqjsNqottaOnNR5hdaCj9merdiks9edrdiptdWEkM81Ps8vN88xOc8uNs8tNtNve9aottJibtA0PdFDTdaIldihr9icp9FCS88tNc84Qc81PdBLVc8zO9A5Qs84QM4uN9FASdWTodOCjs8uN9JMVtNnctA3QM80Pc8yO9A6Q89AStBETtAyO9A1Ps8sNNJqds5ndNJOWNi0wdelstecqdAtNtFFT9iqt9mqt9KmtMpvfdJCS9ejsNeotdFJU89PWsxpddeWotN4g84dJNims9BpddWQnNR9iM5DTdXBz8V/kNWir9Nxe9Nsd9eapspTYMaBj9avvNJUXs8lLdd9iMytvdKvvdRGT8BcbM6vvsidrtSpt9MvNtMzO9ekscB6jLl+kdO0wsGHmLhvgMyaqMumtdKpt8xbZ7Nxg86frsejtM+mtbpbbb1eb9Gsu7V/lbNyhtCywcl3hLw/Tc91gtOksrJ+k7FSZdmdqMx9i8+qua9XbLRqf8+xwKpshatne7yPoNqlsdpueNmvu9eBi8GqvcV+jtmksM8xOtdjbNqDjb2brptbdaJlep5edLSJnLymt8xVYNMtNcs7RtKJldiapc9LVdArM9NRW8isvL2er5Ved5FbdZRacJJZbotPZYVMY5NKX8k7RdUzOswtNcwsNNQwN805QpxEVoFOZoJNZ4RSbIRUbodSaINPZoNQZoBOZXhOZoNLYbw8SNk2PtY2Prs8SIVJXXdNZHtLYXpMZHlMZXxOZ35MYXRHXndIXnFFXHFEWnBGW2lDWqE8S6I+TG5GW25FWnNEWW9EW29FW3BFXXBGXmtCWHFEWW5DV2lAVGY/U2U+UmE9UVo9U10/VGQ+Umg/U2c/VGM+VGE9VGVAVmlBWP///50aps8AAAABYktHRPQy1StNAAAAB3RJTUUH6AcKDx4Lo5GuUQAAARtJREFUGNMBEAHv/gAAAQIDBAUGBwgJCgsMDQ4PABAREhMUFRYEFxgZGhscHR4AHyAhIiMkJSYnKCkiIiorLAAtLi8kITAxITIvMzQ1Njc4ADk6Ozw9Pj9ALkFCIkNERUYAR0hJSktMTU5PUFFSU1RVVgBXWFlaW1xdXl9gYWJjZGVmAGdoaWprbG1ub3BxcnN0dXYAd3h5ent8fX5/gIGCg4SFhgCHiImKgouMjY6PkJGSk5SVAJaXmJmaMZucnZ6fdaChoqMApKWmp6ipqqusra6vsLGyswC0tba3uLm6u7y9vr/AwcLDAMTFxsfIycrLzM3Oz9DR0tMA1NXW19jZ2tvc3d7f4OHi4wDk5ebn6Onq6+zt7u/w8fLzMc52JD1lDxwAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjQtMDctMTBUMTU6MzA6MTArMDA6MDBIzYEAAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDI0LTA3LTEwVDE1OjMwOjEwKzAwOjAwOZA5vAAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyNC0wNy0xMFQxNTozMDoxMSswMDowMMjyE9cAAAAASUVORK5CYII=
-"""
+ICON_FILE = "icon_base64.txt"
 
 class PolarH10OSCApp:
     def __init__(self, root):
@@ -31,8 +29,9 @@ class PolarH10OSCApp:
         text_fg_color = "#ffffff"
 
         self.root.configure(bg=bg_color)
+        self.root.resizable(False, False)
 
-        icon_data = base64.b64decode(icon_base64)
+        icon_data = self.load_icon_data()
         icon_image = Image.open(BytesIO(icon_data))
         self.icon = ImageTk.PhotoImage(icon_image)
         self.root.iconphoto(False, self.icon)
@@ -80,6 +79,16 @@ class PolarH10OSCApp:
 
         if self.startup_checkbox_var.get():
             self.start_script()
+
+    def load_icon_data(self):
+        if hasattr(sys, '_MEIPASS'):
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.abspath(".")
+
+        file_path = os.path.join(base_path, "icon_base64.txt")
+        with open(file_path, "rb") as f:
+            return base64.b64decode(f.read())
 
     def load_config(self):
         if not os.path.exists(APPDATA_DIR):
