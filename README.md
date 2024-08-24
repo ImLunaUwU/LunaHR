@@ -20,16 +20,11 @@ Everything should now be straightforward.
 
 Get the Unity prefab here: [Quest compatible (33 bytes)](https://github.com/ImLunaUwU/LunaHR/blob/main/LunaHR%20(33%20bytes%2C%20works%20with%20quest).unitypackage), [PC only (9 bytes)](https://github.com/ImLunaUwU/LunaHR/blob/main/LunaHR%20(9%20bytes%2C%20not%20quest%20compatible).unitypackage)
 
-Get the executable versions of the HR software from here: [Polar (H10)](https://github.com/ImLunaUwU/LunaHR/blob/main/dist/PolarH10OSC.exe), [Pulsoid (Now with OAuth)](https://github.com/ImLunaUwU/LunaHR/blob/main/dist/PulsoidHROSC%20OAuth.exe)
+Get the executable version of the HR software from here: [LunaHR.exe](https://github.com/ImLunaUwU/LunaHR/blob/main/dist/LunaHR.exe)
 
-I'm gonna be honest and say your anti-virus probably wont like them, due to the fact that they're unsigned and the backend is Python.
-If you do not trust the EXEs, feel free to use the raw Python scripts. They're essentially the same, but one (the exe) is neater and comes with the dependencies packaged.
+Older versions of the software, specifically before the merge does exist in the same directory.
 
-I have no clue how to get this unflagged, since it is what it is. A Python script. I'd remake this in electron and all, but idk how to use that :c
-
-The executable versions wont require you installing a bunch of things, as all dependencies are packaged within. For this reason, it also runs slightly better... Probably...
-
-![Image of the executables](zginbfyf.bmp)
+![Image of the executable](LunaHRexe.png)
 ## Setup:
 
 ### Avatar
@@ -49,14 +44,11 @@ VRCFury should take care of all setup from this point. If not, please contact me
 
 Feel free to customize materials to your liking.
 
-### Polar H10
-Everything is now configurable in the new GUI app.
+### Unified App
+There is now a unified app (merged) which brings both the Pulsoid version and the Polar H10 version of this program into one.
+This was done for the sake of convenience and to make things simpler for people to start using.
 
-### Pulsoid - PAID PLAN REQUIRED
-Login is simple and in a GUI. This requires Pulsoid's "BRO" plan.
-Click the login button and approve in your browser. After this, you should be logged in.
 
-This feature is new, so bugs can happen. If you find any, please report them.
 
 ## Credits and info
 HEAVILY inspired by the (now inactive) project here: https://github.com/200Tigersbloxed/HRtoVRChat_OSC/
@@ -69,4 +61,8 @@ PC only prefab uses the [Simple Counter Shader](https://www.patreon.com/posts/si
 
 #### Parameter configuration may come in the future, though is not currently a priority. 
 
+^ It is a pain in the ass to do this with the current script. Might happen if I do a complete overhaul.
+
 The heart and text uses Poiyomi Toon, which you can get from Poi's Discord. https://discord.gg/poiyomi
+
+As of right now I will not add support for another service for gathering heart rate data, I will instead work to improve the current app and assets.
