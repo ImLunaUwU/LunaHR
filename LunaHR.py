@@ -391,12 +391,17 @@ class PulsoidOSCApp:
             
             if self.heart_rates:
                 average_hr = sum(self.heart_rates) / len(self.heart_rates)
+                max_hr = max(self.heart_rates)
+                min_hr = min(self.heart_rates)
                 self.console_log(f"Average Heart Rate: {average_hr:.2f} BPM")
+                self.console_log(f"Max Heart Rate: {max_hr} BPM")
+                self.console_log(f"Min Heart Rate: {min_hr} BPM")
             else:
                 self.console_log("No heart rate data collected.")
         except Exception as e:
             logging.error(f"Error stopping script: {e}")
             traceback.print_exc()
+
 
     async def run_websocket(self, token):
         try:
@@ -533,15 +538,20 @@ class PolarH10OSCApp:
                 self.loop.call_soon_threadsafe(self.loop.stop)
             if self.thread:
                 self.thread.join()
-
+    
             if self.heart_rates:
                 average_hr = sum(self.heart_rates) / len(self.heart_rates)
+                max_hr = max(self.heart_rates)
+                min_hr = min(self.heart_rates)
                 self.console_log(f"Average Heart Rate: {average_hr:.2f} BPM")
+                self.console_log(f"Max Heart Rate: {max_hr} BPM")
+                self.console_log(f"Min Heart Rate: {min_hr} BPM")
             else:
                 self.console_log("No heart rate data collected.")
         except Exception as e:
             logging.error(f"Error stopping script: {e}")
             traceback.print_exc()
+
 
     def run_async_script(self, polar_h10_name):
         try:
