@@ -18,7 +18,6 @@ from websockets import connect
 import logging
 import traceback
 
-# Setup the APPDATA_DIR and LOG_FILE paths
 APPDATA_DIR = os.path.join(os.getenv('APPDATA'), 'imlunauwu')
 if not os.path.exists(APPDATA_DIR):
     os.makedirs(APPDATA_DIR)
@@ -28,15 +27,12 @@ ICON_FILE = "icon_base64.txt"
 LOG_FILE = os.path.join(APPDATA_DIR, "app.log")
 HEART_RATE_UUID = "00002a37-0000-1000-8000-00805f9b34fb"
 
-# Clear the log file on each startup
 with open(LOG_FILE, 'w') as f:
     f.write('')
 
-# Redirect stdout and stderr to the log file
 sys.stdout = open(LOG_FILE, 'a')
 sys.stderr = open(LOG_FILE, 'a')
 
-# Configure logging
 logging.basicConfig(filename=LOG_FILE, level=logging.DEBUG, 
                     format="%(asctime)s %(levelname)s: %(message)s")
 
@@ -85,7 +81,7 @@ class MainApp:
         self.console_frame = tk.Frame(self.main_frame, bg="#2e2e2e")
         self.console_frame.pack(fill=tk.BOTH, expand=True, pady=10)
 
-        self.console_text = scrolledtext.ScrolledText(self.console_frame, wrap=tk.WORD, width=50, height=15, bg="#1e1e1e", fg="#ffffff", insertbackground="#ffffff")
+        self.console_text = scrolledtext.ScrolledText(self.console_frame, wrap=tk.WORD, width=50, height=15, bg="#1e1e1e", fg="#ffffff", insertbackground="#ffffff", state=tk.DISABLED)
         self.console_text.pack(fill=tk.BOTH, expand=True)
 
         self.pulsoid_app = PulsoidOSCApp(self.pulsoid_frame, self.console_log, self.clear_console)
@@ -210,11 +206,15 @@ class MainApp:
             traceback.print_exc()
 
     def console_log(self, message):
+        self.console_text.config(state=tk.NORMAL)
         self.console_text.insert(tk.END, f"{message}\n")
         self.console_text.see(tk.END)
+        self.console_text.config(state=tk.DISABLED)
 
     def clear_console(self):
+        self.console_text.config(state=tk.NORMAL)
         self.console_text.delete(1.0, tk.END)
+        self.console_text.config(state=tk.DISABLED)
 
     def open_author_link(self):
         try:
@@ -390,18 +390,21 @@ class PulsoidOSCApp:
                 self.loop.call_soon_threadsafe(self.loop.stop)
             
             if self.heart_rates:
-                average_hr = sum(self.heart_rates) / len(self.heart_rates)
-                max_hr = max(self.heart_rates)
-                min_hr = min(self.heart_rates)
-                self.console_log(f"Average Heart Rate: {average_hr:.2f} BPM")
-                self.console_log(f"Max Heart Rate: {max_hr} BPM")
-                self.console_log(f"Min Heart Rate: {min_hr} BPM")
+                filtered_heart_rates = [hr for hr in self.heart_rates if hr > 0]
+                if filtered_heart_rates:
+                    average_hr = sum(filtered_heart_rates) / len(filtered_heart_rates)
+                    max_hr = max(filtered_heart_rates)
+                    min_hr = min(filtered_heart_rates)
+                    self.console_log(f"Average Heart Rate: {average_hr:.2f} BPM")
+                    self.console_log(f"Max Heart Rate: {max_hr} BPM")
+                    self.console_log(f"Min Heart Rate: {min_hr} BPM")
+                else:
+                    self.console_log("No valid heart rate data collected.")
             else:
                 self.console_log("No heart rate data collected.")
         except Exception as e:
             logging.error(f"Error stopping script: {e}")
             traceback.print_exc()
-
 
     async def run_websocket(self, token):
         try:
@@ -450,6 +453,7 @@ class PolarH10OSCApp:
         self.loop = None
         self.thread = None
         self.heart_rates = []
+        self.client = None
 
         self.create_ui()
 
@@ -524,6 +528,7 @@ class PolarH10OSCApp:
 
             self.osc_client = udp_client.SimpleUDPClient(vrchat_ip, vrchat_port)
             self.stop_flag.clear()
+            self.heart_rates = []
             self.loop = asyncio.new_event_loop()
             self.thread = threading.Thread(target=self.run_async_script, args=(polar_h10_name,))
             self.thread.start()
@@ -538,20 +543,26 @@ class PolarH10OSCApp:
                 self.loop.call_soon_threadsafe(self.loop.stop)
             if self.thread:
                 self.thread.join()
-    
+            if self.client:
+                self.loop.run_until_complete(self.client.disconnect())
+                self.client = None
+
             if self.heart_rates:
-                average_hr = sum(self.heart_rates) / len(self.heart_rates)
-                max_hr = max(self.heart_rates)
-                min_hr = min(self.heart_rates)
-                self.console_log(f"Average Heart Rate: {average_hr:.2f} BPM")
-                self.console_log(f"Max Heart Rate: {max_hr} BPM")
-                self.console_log(f"Min Heart Rate: {min_hr} BPM")
+                filtered_heart_rates = [hr for hr in self.heart_rates if hr > 0]
+                if filtered_heart_rates:
+                    average_hr = sum(filtered_heart_rates) / len(filtered_heart_rates)
+                    max_hr = max(filtered_heart_rates)
+                    min_hr = min(filtered_heart_rates)
+                    self.console_log(f"Average Heart Rate: {average_hr:.2f} BPM")
+                    self.console_log(f"Max Heart Rate: {max_hr} BPM")
+                    self.console_log(f"Min Heart Rate: {min_hr} BPM")
+                else:
+                    self.console_log("No valid heart rate data collected.")
             else:
                 self.console_log("No heart rate data collected.")
         except Exception as e:
             logging.error(f"Error stopping script: {e}")
             traceback.print_exc()
-
 
     def run_async_script(self, polar_h10_name):
         try:
@@ -567,6 +578,9 @@ class PolarH10OSCApp:
             retry_interval = 10
             while not self.stop_flag.is_set():
                 try:
+                    if self.client:
+                        await self.client.disconnect()
+
                     devices = await BleakScanner.discover()
                     polar_h10_device = None
                     for device in devices:
@@ -576,21 +590,22 @@ class PolarH10OSCApp:
 
                     if polar_h10_device:
                         self.console_log(f"Found Polar H10: {polar_h10_device}")
-                        async with BleakClient(polar_h10_device.address) as client:
-                            await client.start_notify(HEART_RATE_UUID, self.handle_heart_rate)
-                            try:
-                                while not self.stop_flag.is_set():
-                                    await asyncio.sleep(1)
-                            except KeyboardInterrupt:
-                                self.console_log("Exiting gracefully.")
-                                await client.stop_notify(HEART_RATE_UUID)
-                                break
+                        self.client = BleakClient(polar_h10_device.address)
+                        await self.client.connect()
+                        await self.client.start_notify(HEART_RATE_UUID, self.handle_heart_rate)
+                        try:
+                            while not self.stop_flag.is_set():
+                                await asyncio.sleep(1)
+                        except KeyboardInterrupt:
+                            self.console_log("Exiting gracefully.")
+                            await self.client.stop_notify(HEART_RATE_UUID)
+                            break
                     else:
                         self.console_log(f"Polar H10 not found. Retrying in {retry_interval} seconds.")
                         await asyncio.sleep(retry_interval)
 
                 except Exception as e:
-                    self.console_log(f"Error: {e}. Retrying in {retry_interval} seconds.")
+                    self.console_log(f"Error during connection: {e}. Retrying in {retry_interval} seconds.")
                     await asyncio.sleep(retry_interval)
         except Exception as e:
             logging.error(f"Error in WebSocket script: {e}")

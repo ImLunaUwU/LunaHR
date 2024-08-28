@@ -48,6 +48,7 @@ Feel free to customize materials to your liking.
 There is now a unified app (merged) which brings both the Pulsoid version and the Polar H10 version of this program into one.
 This was done for the sake of convenience and to make things simpler for people to start using.
 
+Note: The Polar version of the app may hang for a handful of seconds when stopping/quitting the app. This is because it is attempting to close the connection to the device to free it up for potential future use.
 
 
 ## Credits and info
