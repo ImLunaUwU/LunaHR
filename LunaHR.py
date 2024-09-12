@@ -45,7 +45,7 @@ VALIDATION_URL = "https://dev.pulsoid.net/api/v1/token/validate"
 class MainApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("LunaHR by Luna")
+        self.root.title("LunaHR - Version 2.1")
         self.root.configure(bg="#2e2e2e")
         self.root.resizable(False, False)
 
