@@ -4,18 +4,7 @@ import random
 import time
 from pythonosc import udp_client
 
-def install_dependencies():
-    required_packages = ["python-osc"]
-
-    for package in required_packages:
-        try:
-            __import__(package)
-        except ImportError:
-            print(f"Installing {package}...")
-            subprocess.check_call(["pip", "install", package])
-
 if __name__ == "__main__":
-    install_dependencies()
     
     vrchat_ip = "127.0.0.1"
     vrchat_port = 9000
@@ -34,11 +23,11 @@ if __name__ == "__main__":
         osc_client.send_message("/avatar/parameters/hr/hundreds_hr", hundreds_hr)
         osc_client.send_message("/avatar/parameters/hr/heart_rate", heart_rate)
 
-        print(f"Sent Realistic Heart Rate: {hundreds_hr}{tens_hr}{ones_hr} | BPM: {heart_rate}")
+        print(f"Sent Random Heart Rate: {hundreds_hr}{tens_hr}{ones_hr} | BPM: {heart_rate}")
 
     try:
         while True:
             simulate_realistic_heart_rate()
-            time.sleep(5)
+            time.sleep(1)
     except KeyboardInterrupt:
         print("Script terminated by user.")

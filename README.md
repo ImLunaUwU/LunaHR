@@ -18,7 +18,7 @@ If you have another Polar monitor, please test my script with your device and le
 
 Everything should now be straightforward.
 
-Get the Unity prefab here: [Quest compatible (33 bytes)](https://github.com/ImLunaUwU/LunaHR/blob/main/LunaHR%20(33%20bytes%2C%20works%20with%20quest).unitypackage), [PC only (9 bytes)](https://github.com/ImLunaUwU/LunaHR/blob/main/LunaHR%20(9%20bytes%2C%20not%20quest%20compatible).unitypackage)
+Get the Unity prefab here: [Quest (Display only, no pulse anim.) compatible (33 bytes)](https://github.com/ImLunaUwU/LunaHR/blob/main/LunaHR%20(33%20bytes%2C%20works%20with%20quest).unitypackage), [PC only (9 bytes)](https://github.com/ImLunaUwU/LunaHR/blob/main/LunaHR%20(9%20bytes%2C%20not%20quest%20compatible).unitypackage)
 
 Get the version of the HR software from here: [Releases](https://github.com/ImLunaUwU/LunaHR/releases)
 
@@ -38,9 +38,11 @@ This is slightly time consuming, but overall worth it if you're chronically onli
 
 When adding to the avatar, the display defaults to be on your left wrist/left lower arm bone. This can be changed by unpacking the prefab and changing armature link settings.
 
+Remember to have the HR prefab floating a little, as it otherwise would most likely clip into your arm. By default, it is set up for the Rexouium and Rex edits, but can be used on any avatars by moving it to an appropriate position.
+
 VRCFury should take care of all setup from this point. If not, please contact me because then I'd need to fix some things.
 
-*In the most recent update HR Prefab can be left on before uploading, as it now uses VRCFury toggles.*
+*The HR Prefab can be left on before uploading, as it now uses VRCFury toggles.*
 
 Feel free to customize materials to your liking.
 
@@ -50,6 +52,9 @@ This was done for the sake of convenience and to make things simpler for people 
 
 Note: The Polar version of the app may hang for a handful of seconds when stopping/quitting the app. This is because it is attempting to close the connection to the device to free it up for potential future use.
 
+Because of a nice partnership with Pulsoid, if you sign up for the "BRO" plan through my authentication or my affiliate link (coming soon), you will get a slight discount, and I will get a *slight* bit of change for my pocket :3
+
+I've intentionally made it so this deal benefits you (the user) more than myself :3
 
 ## Credits and info
 HEAVILY inspired by the (now inactive) project here: https://github.com/200Tigersbloxed/HRtoVRChat_OSC/
@@ -62,7 +67,7 @@ PC only prefab uses the [Simple Counter Shader](https://www.patreon.com/posts/si
 
 #### Parameter configuration may come in the future, though is not currently a priority. 
 
-^ It is a pain in the ass to do this with the current script. Might happen if I do a complete overhaul.
+^ It is a pain in the ass to do this with the current script. Might happen if I do a complete overhaul. As of currently I have tried to implement this, but it turned out to be harder than I thought.
 
 The heart and text uses Poiyomi Toon, which you can get from Poi's Discord. https://discord.gg/poiyomi
 
