@@ -18,7 +18,7 @@ If you have another Polar monitor, please test my script with your device and le
 
 Everything should now be straightforward.
 
-Get the Unity prefab here: [Quest (Display only, no pulse anim.) compatible (33 bytes)](https://github.com/ImLunaUwU/LunaHR/blob/main/LunaHR%20(33%20bytes%2C%20works%20with%20quest).unitypackage), [PC only (9 bytes)](https://github.com/ImLunaUwU/LunaHR/blob/main/LunaHR%20(9%20bytes%2C%20not%20quest%20compatible).unitypackage)
+Get the Unity prefab here: [Quest (Display only, no pulse anim./audio effects) compatible (34 bytes)](https://github.com/ImLunaUwU/LunaHR/blob/main/LunaHR%20(Uses%20more%20parameters%2C%20but%20works%20with%20quest).unitypackage), [PC only (Optional Heartbeat sound effects + Pulse animation) (10-12 bytes)](https://github.com/ImLunaUwU/LunaHR/blob/main/LunaHR%20(Optimized%20for%20PC%2C%20has%20fancy%20features%2C%20not%20quest%20compatible).unitypackage)
 
 Get the version of the HR software from here: [Releases](https://github.com/ImLunaUwU/LunaHR/releases)
 
@@ -34,7 +34,9 @@ Before importing the unitypackage, please make sure you already have Poiyomi Too
 Alternatively, if you do not want to use Poi, you'd lack the BPM effect unless you set it up yourself.
 This is slightly time consuming, but overall worth it if you're chronically online like me.
 
-*HR Prefab should be dragged onto the avatar root itself.*
+The PC version now has heartbeat sounds!
+
+*LunaHR/HR Prefab should be dragged onto the avatar root itself.*
 
 When adding to the avatar, the display defaults to be on your left wrist/left lower arm bone. This can be changed by unpacking the prefab and changing armature link settings.
 
