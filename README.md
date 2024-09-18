@@ -36,6 +36,8 @@ This is slightly time consuming, but overall worth it if you're chronically onli
 
 The PC version now has heartbeat sounds!
 
+Please adjust the volumes to your likings as I turned them up after feedback said they were quiet.
+
 *LunaHR/HR Prefab should be dragged onto the avatar root itself.*
 
 When adding to the avatar, the display defaults to be on your left wrist/left lower arm bone. This can be changed by unpacking the prefab and changing armature link settings.
