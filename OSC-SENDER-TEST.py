@@ -28,6 +28,6 @@ if __name__ == "__main__":
     try:
         while True:
             simulate_realistic_heart_rate()
-            time.sleep(1)
+            time.sleep(10)
     except KeyboardInterrupt:
         print("Script terminated by user.")
